@@ -1,5 +1,7 @@
 OLED_DRIVER_ENABLE = yes   # Enables the use of OLED displays
 ENCODER_ENABLE = no       # ENables the use of one or more encoders
-RGBLIGHT_ENABLE = no      # Enable keyboard RGB underglow
-MOUSEKEY_ENABLE = yes
+RGBLIGHT_ENABLE = yes      # Enable keyboard RGB underglow
+MOUSEKEY_ENABLE = no
 WPM_ENABLE = yes
+
+SRC += oled.c
