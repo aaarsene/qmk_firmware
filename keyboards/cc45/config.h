@@ -33,8 +33,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_COLS 13
 
 /* Planck PCB default pin-out */
-#define MATRIX_ROW_PINS { D4, D6, B4, D5 }
-#define MATRIX_COL_PINS { D7, B5, B6, C6, C7, F7, B7, E6, F6, F5, F4, F1, F0 }
+#define MATRIX_ROW_PINS { F0, E6, D4, C6 }
+#define MATRIX_COL_PINS { C7, F1, F4, F5, F6, F7, D0, D1, D6, D7, B4, B5, B6 }
 #define UNUSED_PINS
 
 /* COL2ROW or ROW2COL */
