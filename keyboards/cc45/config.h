@@ -22,8 +22,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0x4154
-#define PRODUCT_ID      0x6869
-#define DEVICE_VER      0x0001
+#define PRODUCT_ID      0x6870
+#define DEVICE_VER      0x0002
 #define MANUFACTURER    aaarsene
 #define PRODUCT         CC45
 #define DESCRIPTION     q.m.k. keyboard firmware for CC45
