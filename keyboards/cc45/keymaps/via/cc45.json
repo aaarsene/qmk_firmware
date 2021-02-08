@@ -6,7 +6,7 @@
     "matrix": {"rows": 4, "cols": 13},
     "layouts": {
       "labels": [
-        ["Bottom row", "7U", "Split 4x1u", "Split 1.5u 1u 1.5u", "Split 1u 1.5u 1.5u"]
+        ["Bottom row", "7U", "Split 1", "Split 2", "Split 3"]
       ],
       "keymap": [
         {
