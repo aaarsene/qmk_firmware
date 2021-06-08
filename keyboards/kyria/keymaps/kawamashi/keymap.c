@@ -184,21 +184,83 @@ void oled_task_user(void) {
 #endif
 
 #ifdef ENCODER_ENABLE
+
+/* The encoder_update_user is a function.
+ * It'll be called by QMK every time you turn the encoder.
+ *
+ * The index parameter tells you which encoder was turned. If you only have
+ * one encoder, the index will always be zero.
+ *
+ * The clockwise parameter tells you the direction of the encoder. It'll be
+ * true when you turned the encoder clockwise, and false otherwise.
+ */
+
 void encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
-        // Volume control
-        if (clockwise) {
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
+        switch (get_highest_layer(layer_state)) {
+            case _BASE:
+                if (clockwise) {
+                    register_code(KC_LALT);
+                    tap_code(KC_TAB);
+                    unregister_code(KC_LALT);
+                } else {
+                    register_code(KC_LALT);
+                    register_code(KC_LSFT);
+                    tap_code(KC_TAB);
+                    unregister_code(KC_LSFT);
+                    unregister_code(KC_LALT);
+                }
+                break;
+            case _LOWER:
+                if (clockwise) {
+                    register_code(KC_LCTL);
+                    register_code(KC_LGUI);
+                    tap_code(KC_RIGHT);
+                    unregister_code(KC_LGUI);
+                    unregister_code(KC_LCTL);
+                } else {
+                    register_code(KC_LCTL);
+                    register_code(KC_LGUI);
+                    tap_code(KC_LEFT);
+                    unregister_code(KC_LGUI);
+                    unregister_code(KC_LCTL);
+                }
+                break;
+            case _RAISE:
+                if (clockwise) {
+                    rgblight_increase_val();
+                } else {
+                    rgblight_decrease_val();
+                }
+                break;
         }
-    }
-    else if (index == 1) {
-        // Page up/Page down
-        if (clockwise) {
-            tap_code(KC_PGDN);
-        } else {
-            tap_code(KC_PGUP);
+    } else if (index == 1) {
+        switch (get_highest_layer(layer_state)) {
+            case _BASE:
+                if (clockwise) {
+                    tap_code(KC_WH_D);
+                } else {
+                    tap_code(KC_WH_U);
+                }
+                break;
+            case _LOWER:
+                if (clockwise) {
+                    register_code(KC_LCTL);
+                    tap_code(BP_Z);
+                    unregister_code(KC_LCTL);
+                } else {
+                    register_code(KC_LCTL);
+                    tap_code(BP_Y);
+                    unregister_code(KC_LCTL);
+                }
+                break;
+            case _RAISE:
+                if (clockwise) {
+                    tap_code(KC_VOLU);
+                } else {
+                    tap_code(KC_VOLD);
+                }
+                break;
         }
     }
 }
