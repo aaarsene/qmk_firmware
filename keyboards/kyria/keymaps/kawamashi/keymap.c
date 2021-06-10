@@ -30,8 +30,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
       KC_TAB, BP_AGRV,BP_B,   BP_EACU,BP_DOT, BP_MINS,                                                    BP_DCIR, BP_V,    BP_L,    BP_M,    BP_X, BP_CCED,
       KC_ENT, BP_O,   BP_U,   BP_A,   BP_I,   BP_J,                                                       BP_G,    BP_T,    BP_S,    BP_N,    BP_R, BP_F,
-      KC_ESC, BP_Q,   BP_Y,   BP_EGRV,LGUI_T(BP_P),   BP_ECIR,   LSFT_T(BP_E), LT(1,BP_COMM), LT(2,BP_QUOT), RSFT_T(KC_SPC),  BP_K,    RGUI_T(BP_D), BP_W, BP_H, BP_C, BP_Z,
-                                MO(1), KC_END, KC_BSPC, LSFT_T(BP_E), LT(1,BP_COMM), LT(2,BP_QUOT), RSFT_T(KC_SPC), KC_DEL,  KC_HOME, KC_MUTE
+      KC_ESC, BP_Q,   BP_Y,   BP_EGRV,LGUI_T(BP_P),   BP_ECIR,   TO(_BASE), TO(_LOWER), TO(_RAISE), TO(_ADJUST),  BP_K,    RGUI_T(BP_D), BP_W, BP_H, BP_C, BP_Z,
+                                MO(_LOWER), KC_END, KC_BSPC, LSFT_T(BP_E), LT(_LOWER,BP_COMM), LT(_RAISE,BP_QUOT), RSFT_T(KC_SPC), KC_DEL,  KC_HOME, KC_MUTE
     ),
     [_LOWER] = LAYOUT(
       _______, BP_LCBR, BP_RCBR, KC_UP,   BP_LPRN,  BP_RPRN,                                   BP_MINS,BP_7, BP_8, BP_9, BP_ASTR, KC_NO,
